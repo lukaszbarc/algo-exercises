@@ -7,14 +7,14 @@ import java.util.StringJoiner;
 public class MaximumSubarrayKadanesProblemResolver implements MaximumSubarrayProblemResolver {
 
 	@Override
-	public int[] findMaximumSubarray(int[] array) {
+	public int[] findMaximumSubarray(int[] arr) {
 		int maxSumLeft = 0;
 		int maxSumRight = 0;
 		int maxSumValue = 0;
 		int left = 0;
 		int currentSumValue = 0;
-		for (int i = 0; i < array.length; i++) {
-			currentSumValue += array[i];
+		for (int i = 0; i < arr.length; i++) {
+			currentSumValue += arr[i];
 			if (currentSumValue < 0) {
 				currentSumValue = 0;
 				left = i + 1;
@@ -25,7 +25,7 @@ public class MaximumSubarrayKadanesProblemResolver implements MaximumSubarrayPro
 				maxSumRight = i;
 			}
 		}
-		return Arrays.copyOfRange(array, maxSumLeft, maxSumRight + 1);
+		return Arrays.copyOfRange(arr, maxSumLeft, maxSumRight + 1);
 	}
 
 	@Override
